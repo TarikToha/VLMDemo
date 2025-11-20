@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+    Main layout for Gemini Image Understanding Demo
+    - Shows captured image
+    - Buttons for Camera + Gemini API
+    - Scrollable TextView for Gemini response
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <!--
+        ImageView where the camera preview (thumbnail) is displayed.
+        Gray background is used before an image is captured.
+    -->
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:background="@color/material_grey_300"
+        android:scaleType="fitCenter" />
+
+    <!--
+        Row of buttons for:
+        1. Capturing image
+        2. Sending image to Gemini
+    -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <!-- Camera Button -->
+        <Button
+            android:id="@+id/btnCapture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:onClick="startCamera"
+            android:text="Capture" />
+
+        <!-- Gemini Button -->
+        <Button
+            android:id="@+id/btnGemini"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:onClick="startGemini"
+            android:text="Gemini" />
+
+    </LinearLayout>
+
+    <!--
+        TextView for Gemini's text response.
+        - Scrollable using movement method in MainActivity
+        - Takes remaining available space
+    -->
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="20dp"
+        android:layout_weight="1"
+        android:gravity="top"
+        android:scrollbars="vertical"
+        android:text="Gemini"
+        android:textSize="16sp" />
+
+</LinearLayout>
